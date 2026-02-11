@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Environment (do not commit secrets)
+.env
+.env.*
+!.env.example
+
+# Markdown except README
+*.md
+!README.md
+
+# Data / models (high volume)
+*.pkl
+*.joblib
+data/
+logs/
+*.log
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/

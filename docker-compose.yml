@@ -1,0 +1,53 @@
+# SCM Forecast & Inventory Copilot — MySQL + API + Web
+# root 비번 12345, DB 유저 scmcore / scmcore12345 (개발용만 사용)
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: scmcore-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: "12345"
+      MYSQL_DATABASE: "scmcore"
+      MYSQL_USER: "scmcore"
+      MYSQL_PASSWORD: "scmcore12345"
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      # 최초 1회만: DB·테이블 자동 생성 (mysql_data 비어 있을 때만 실행됨)
+      # - ./db:/docker-entrypoint-initdb.d:ro
+    command: ["mysqld", "--default-authentication-plugin=mysql_native_password", "--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: scmcore
+      DB_USER: scmcore
+      DB_PASSWORD: scmcore12345
+      MODEL_DIR: /app/data/ml/models
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - mysql
+
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: http://localhost:8000
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_BASE_URL: http://localhost:8000
+    depends_on:
+      - api
+
+volumes:
+  mysql_data:

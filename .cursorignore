@@ -1,0 +1,54 @@
+# ========================
+# Secrets / Environment
+# ========================
+.env
+.env.*
+*.pem
+*.key
+*.crt
+
+# ========================
+# Database & Data
+# ========================
+data/raw/**
+data/staging/**
+data/models/**
+*.csv
+*.parquet
+*.zip
+
+# ========================
+# Python
+# ========================
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# ========================
+# Node / Frontend
+# ========================
+node_modules/
+dist/
+build/
+
+# ========================
+# Logs & Artifacts
+# ========================
+logs/
+*.log
+coverage/
+
+# ========================
+# Jupyter / Research
+# ========================
+notebooks/
+*.ipynb
+
+# ========================
+# OS / IDE
+# ========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

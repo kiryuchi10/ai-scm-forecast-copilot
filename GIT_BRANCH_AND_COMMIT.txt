@@ -1,0 +1,26 @@
+# AI SCM Forecast Copilot — Next branch & suggested commit
+
+## Recommended branch name (for work after main)
+  develop
+
+Alternative:  feature/dashboard-phase2  or  release/v1-dashboard
+
+## Suggested git commit (for current state)
+
+Title (first line, ~72 chars):
+  feat: SCM Forecast Copilot — API, Web dashboard, DB schema, run tooling
+
+Message body:
+  - Backend: FastAPI (KPI, analytics, projects) with MySQL/SQLAlchemy
+  - Frontend: Vite + React + TypeScript (Home, Analytics, Projects, Admin)
+  - DB: init + schema scripts; DataCo CSV loader; run_db_sql scripts
+  - Docker Compose for MySQL, API, Web
+  - .gitignore: exclude *.md except README.md; secrets; high-volume/data artifacts
+
+Example:
+  git add .
+  git commit -m "feat: SCM Forecast Copilot — API, Web dashboard, DB schema, run tooling" -m "- Backend: FastAPI (KPI, analytics, projects) with MySQL/SQLAlchemy
+  - Frontend: Vite + React + TypeScript (Home, Analytics, Projects, Admin)
+  - DB: init + schema scripts; DataCo CSV loader; run_db_sql scripts
+  - Docker Compose for MySQL, API, Web
+  - .gitignore: exclude *.md except README.md; secrets; high-volume artifacts"

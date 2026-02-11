@@ -1,0 +1,60 @@
+# ========================
+# Markdown (keep README.md only at project root)
+# ========================
+*.md
+!README.md
+
+# ========================
+# Secrets / Environment
+# ========================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+*.pfx
+
+# ========================
+# Database & Data (high volume)
+# ========================
+data/raw/
+data/staging/
+data/features/
+data/ml/
+*.csv
+*.parquet
+*.zip
+
+# ========================
+# Python
+# ========================
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.pkl
+*.joblib
+
+# ========================
+# Node / Frontend
+# ========================
+node_modules/
+dist/
+build/
+
+# ========================
+# Logs & Artifacts
+# ========================
+logs/
+*.log
+uploads/
+coverage/
+
+# ========================
+# OS / IDE
+# ========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
